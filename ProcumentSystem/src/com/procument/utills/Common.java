@@ -6,6 +6,11 @@ import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+/**
+ * 
+ * @author Tiran Harsha
+ *
+ */
 public class Common {
 
 	public static final Properties PROPERTY= new Properties();

@@ -2,7 +2,7 @@
     <wb-module deploy-name="ProcumentSystem">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="ProcumentSystem"/>
         <property name="java-output-path" value="/ProcumentSystem/build/classes"/>
+        <property name="context-root" value="ProcumentSystem"/>
     </wb-module>
 </project-modules>

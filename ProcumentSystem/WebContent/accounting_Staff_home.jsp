@@ -1,3 +1,4 @@
+<%@page import="com.procument.models.User"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -6,6 +7,10 @@
 		<meta charset="ISO-8859-1">
 		<title>Account Staff</title>
 		<jsp:include page="header.jsp"></jsp:include>
+		
+		<%
+			User user = (User) session.getAttribute("user");
+		%>
 	</head>
 	<body>
 		<div>
@@ -13,7 +18,7 @@
 	                <div class="col mb-4">
 	                    <div class="card shadow bg-success">
 	                        <div class="card-body text-center">
-	                            <a href="#" class="text-decoration-none text-white">Add suppliers</a>
+	                            <a href="add_supliers.jsp" class="text-decoration-none text-white">Add suppliers</a>
 	                        </div>
 	                        
 	                    </div>
@@ -21,7 +26,7 @@
 	                <div class="col mb-4">
 	                    <div class="card shadow bg-secondary">
 	                        <div class="card-body text-center">
-	                            <a href="#" class="text-decoration-none text-white">Add items</a>
+	                            <a href="add_items_seller.jsp" class="text-decoration-none text-white">Add items</a>
 	                        </div>
 	                        
 	                    </div>

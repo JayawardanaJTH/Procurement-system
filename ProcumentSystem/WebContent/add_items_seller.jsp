@@ -1,3 +1,4 @@
+<%@page import="com.procument.models.User"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -6,6 +7,9 @@
 		<meta charset="ISO-8859-1">
 		<title>Add supplier</title>
 		<jsp:include page="header.jsp"></jsp:include>
+		<%
+			User user = (User) session.getAttribute("user");
+		%>
 	</head>
 <body>
 	<div>
@@ -29,7 +33,7 @@
                                     <input type="text" class="form-control" name="itemCode" id="itemCode" placeholder="CE123" required>
                                 </div>
                                 <div class="form-group ml-2">
-                                    <label for="unit">Messurement unit</label>
+                                    <label for="unit">Measurement unit</label>
                                     <select class="custom-select" id="unit" name="unit">
                                         <option selected>Select</option>
                                         <option value="kilo">Kg</option>

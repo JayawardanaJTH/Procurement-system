@@ -25,7 +25,7 @@ public class QueryProcess {
 	 * @param key
 	 * @return query
 	 */
-	public String CreateQuery(String key) {
+	public static String CreateQuery(String key) {
 		
 		Element element = null;
 		final NodeList nodeList;

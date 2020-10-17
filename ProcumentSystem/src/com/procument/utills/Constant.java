@@ -18,6 +18,27 @@ public class Constant {
 	public static final String PASSWORD = "password";
 	public static final String USERNAME = "username";
 	
-	//constant for query id s
-	public static final String GET_NAME = "name";
+	//constant for numbers
+	public static final int ZERO = 0;
+	public static final int ONE = 1;
+	public static final int TWO = 2;
+	public static final int THREE = 3;
+	public static final int FOUR = 4;
+	public static final int FIVE = 5;
+	public static final int SIX = 6;
+	public static final int SEVEN = 7;
+	public static final int EIGHT = 8;
+	public static final int NINE = 9;
+	public static final int TEN = 10;
+	
+	//constant for supplier query id s
+	public static final String ADD_SUPPLIER = "add_supplier";
+	public static final String GET_SUPPLIER_BY_ID = "get_supplier_byID";
+	public static final String GET_ALL_SUPPLIERS = "get_allSuppliers";
+	public static final String UPDATE_SUPPLIER = "updateSupplier";
+	public static final String DELETE_SUPPLIER = "delete_supplier";
+	public static final String GET_SUPPLIER_APPROVE = "get_supplierApprove";
+	
+	//constant for user query id s
+	public static final String GET_USER = "getUser";
 }

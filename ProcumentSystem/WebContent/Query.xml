@@ -1,8 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Queries>
-	<query id="name">
+
+	<!-- Supplier Query -->
+	<query id="add_supplier">
+		<![CDATA[
+			INSERT INTO supplier (sup_name, comp_name, contact, email, add_by, level,approve) VALUES (?,?,?,?,?,?,?)
+		]]>
+	</query>
+	<query id="get_supplier_byID">
 		<![CDATA[
 			
+		]]>
+	</query>
+	<query id="get_allSuppliers">
+		<![CDATA[
+			
+		]]>
+	</query>
+	<query id="updateSupplier">
+		<![CDATA[
+			
+		]]>
+	</query>
+	<query id="delete_supplier">
+		<![CDATA[
+			
+		]]>
+	</query>
+	<query id="get_supplierApprove">
+		<![CDATA[
+			
+		]]>
+	</query>
+	
+	<!-- User Query -->
+	<query id="getUser">
+		<![CDATA[
+			SELECT * FROM user 
+			WHERE username = ? AND password = ?
 		]]>
 	</query>
 </Queries>

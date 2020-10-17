@@ -1,3 +1,4 @@
+<%@page import="com.procument.models.User"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -6,14 +7,24 @@
 		<meta charset="ISO-8859-1">
 		<title>Add supplier</title>
 		<jsp:include page="header.jsp"></jsp:include>
+		
+		<%
+			String error = (String)request.getAttribute("error");
+			User user = (User) session.getAttribute("user");
+		%>
 	</head>
 <body>
+<%
+	if(user==null){
+		response.sendRedirect("Login.jsp");
+	}
+%>
 	<div>
 		<div class="alert-warning mt-5 p-1">
 	              <div>
 	                  <br/>
 	                  <h5 class="text-center font-weight-bold">Supplier Details</h5>
-	                  <form action="#" method="POST">
+	                  <form action="AddSupplier" method="POST">
 	                      <div class="row row-cols-2">
 	                          <div class="form-group col-4">
 	                              <label for="name" class="col-form-label text-dark">Supplier Name</label>
@@ -43,7 +54,7 @@
 	                              </select>
 	                          </div>
 	                          <div class="custom-control custom-checkbox col-3 mt-5 ">
-	                              <input type="checkbox" class="custom-control-input" id="approve" name="approve" required>
+	                              <input type="checkbox" class="custom-control-input" id="approve" name="approve">
 	                              <label for="approve" class="custom-control-label text-dark">Approve Supplier</label>
 	                          </div>
 	                      </div>
@@ -76,14 +87,14 @@
 	                          <td></td>
 	                          <td></td>
 	                          <td></td>
-	                          <td class="row row-cols-2">
-	                              <form action="#" method="GET" class="col">
+	                          <td >
+	                              <form action="#" method="GET">
 	                                  <input type="hidden" name="sup_id" value="">
 	                                  <button type="button" name="delete" class="btn btn-sm btn-danger">Delete</button>
 	                              </form>
-	                              <form action="#" method="GET" class="col">
+	                              <form action="#" method="GET">
 	                                  <input type="hidden" name="sup_id" value="">
-	                                  <button type="button" name="edit" data-target="#edit_form" data-toggle="modal" class="btn btn-sm btn-success">Edit</button>
+	                                  <button type="button" name="edit" data-target="#edit_form" data-toggle="modal" class="btn btn-sm btn-success mt-1">Edit</button>
 	                              </form>
 	                          </td>
 	                      </tr>

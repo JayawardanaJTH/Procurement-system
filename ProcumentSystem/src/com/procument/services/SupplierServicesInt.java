@@ -30,7 +30,7 @@ public interface SupplierServicesInt {
 	 * @return arrayList of supplier objects
 	 * @author Tiran Harsha
 	 */
-	public ArrayList<Supplier> ger_AllSuppliers();
+	public ArrayList<Supplier> get_AllSuppliers();
 	
 	/**
 	 * update supplier details
@@ -38,7 +38,7 @@ public interface SupplierServicesInt {
 	 * @return boolean value
 	 * @author Tiran Harsha
 	 */
-	public boolean updateSupplier(Supplier supplier);
+	public boolean updateSupplier(Supplier supplier, int id);
 	
 	/**
 	 * delete supplier

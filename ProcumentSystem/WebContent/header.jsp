@@ -15,11 +15,12 @@
      	<%
 			User user = (User) session.getAttribute("user");
 			String posit = (String)session.getAttribute("position");
+			String name = (String)session.getAttribute("loginName");
 		%>
      </head>
      <body class="ml-2 mr-2">
      <%
-		if(user==null){
+		if(session.getAttribute("loginName") == null){
 			response.sendRedirect("Login.jsp");
 		}
 	%>
@@ -40,7 +41,7 @@
                     <h6>User position : <%=posit %>  </h6>
                 </div>
                 <div class="col-6">
-                    <h6>User name : <%=user.getUsername() %></h6>
+                    <h6>User name : <%=name %></h6>
                 </div>
             </div>
         

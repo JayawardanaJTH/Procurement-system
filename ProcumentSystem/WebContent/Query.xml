@@ -14,17 +14,20 @@
 	</query>
 	<query id="get_allSuppliers">
 		<![CDATA[
-			
+			SELECT * FROM supplier
 		]]>
 	</query>
 	<query id="updateSupplier">
 		<![CDATA[
-			
+			UPDATE supplier as s
+			SET s.sup_name = ?, s.comp_name = ?, contact = ?, email = ?, add_by = ?, level = ?, approve = ?
+			WHERE s.idsupplier = ?
 		]]>
 	</query>
 	<query id="delete_supplier">
 		<![CDATA[
-			
+			DELETE FROM supplier
+			WHERE idsupplier = ?
 		]]>
 	</query>
 	<query id="get_supplierApprove">

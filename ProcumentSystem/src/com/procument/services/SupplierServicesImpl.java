@@ -67,12 +67,11 @@ public class SupplierServicesImpl implements SupplierServicesInt {
 	}
 
 	@Override
-	public ArrayList<Supplier> ger_AllSuppliers() {
+	public ArrayList<Supplier> get_AllSuppliers() {
 		return getSupplier(Constant.ZERO);
 	}
 	
 	public ArrayList<Supplier> getSupplier(int id){
-		
 		ArrayList<Supplier> arrayList = new ArrayList<>();
 		Supplier supplier;
 		
@@ -111,7 +110,7 @@ public class SupplierServicesImpl implements SupplierServicesInt {
 				supplier.setSup_addby(resultSet.getInt(Constant.SIX));
 				supplier.setSup_level(resultSet.getInt(Constant.SEVEN));
 				
-				if(resultSet.getString(Constant.EIGHT).contentEquals("true")) {
+				if(resultSet.getInt(Constant.EIGHT) == 1) {
 					supplier.setApprove(true);
 				}
 				else {
@@ -120,6 +119,9 @@ public class SupplierServicesImpl implements SupplierServicesInt {
 				
 				arrayList.add(supplier);
 			}
+			preparedStatement.close();
+			resultSet.close();
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 			LOGGER.log(Level.SEVERE, e.getMessage());
@@ -129,13 +131,47 @@ public class SupplierServicesImpl implements SupplierServicesInt {
 	}
 
 	@Override
-	public boolean updateSupplier(Supplier supplier) {
-		return false;
+	public boolean updateSupplier(Supplier supplier, int id ) {
+		try {
+			preparedStatement = (PreparedStatement) connection.prepareStatement(QueryProcess.CreateQuery(Constant.UPDATE_SUPPLIER));
+		
+			preparedStatement.setString(Constant.ONE, supplier.getSup_name());
+			preparedStatement.setString(Constant.TWO, supplier.getComp_name());
+			preparedStatement.setInt(Constant.THREE, supplier.getSup_contact());
+			preparedStatement.setString(Constant.FOUR, supplier.getSup_email());
+			preparedStatement.setInt(Constant.FIVE, supplier.getSup_addby());
+			preparedStatement.setInt(Constant.SIX, supplier.getSup_level());
+			preparedStatement.setBoolean(Constant.SEVEN, supplier.isApprove());
+			
+			preparedStatement.setInt(Constant.EIGHT, supplier.getId());
+
+			preparedStatement.execute();
+			
+			preparedStatement.close();
+			
+			return true;
+		} catch (SQLException e) {
+			e.printStackTrace();
+			LOGGER.log(Level.SEVERE, e.getMessage());
+			return false;
+		}
 	}
 
 	@Override
 	public void deleteSupplier(int id) {
-
+		
+		try {
+			preparedStatement = (PreparedStatement) connection.prepareStatement(QueryProcess.CreateQuery(Constant.DELETE_SUPPLIER));
+		
+			preparedStatement.setInt(Constant.ONE, id);
+			
+			preparedStatement.execute();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			LOGGER.log(Level.SEVERE, e.getMessage());
+		}
+		
 	}
 
 	@Override

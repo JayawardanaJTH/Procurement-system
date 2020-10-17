@@ -2,6 +2,7 @@ package com.procument.models;
 
 public class User {
 
+	private int id;
 	private String username;
 	private String password;
 	private int position;
@@ -9,11 +10,20 @@ public class User {
 	public User() {
 	}
 
-	public User(String username, String password, int position) {
+	public User(int id, String username, String password, int position) {
 		super();
+		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.position = position;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getUsername() {

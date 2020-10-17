@@ -18,7 +18,9 @@
 	                <div class="col mb-4">
 	                    <div class="card shadow bg-success">
 	                        <div class="card-body text-center">
-	                            <a href="add_supliers.jsp" class="text-decoration-none text-white">Add suppliers</a>
+	                        	<form action="AddSupplier" method="get">
+	                            	<button type="submit" class="btn btn-success text-decoration-none text-white">Add suppliers</button>
+	                            </form>
 	                        </div>
 	                        
 	                    </div>
@@ -26,7 +28,9 @@
 	                <div class="col mb-4">
 	                    <div class="card shadow bg-secondary">
 	                        <div class="card-body text-center">
-	                            <a href="add_items_seller.jsp" class="text-decoration-none text-white">Add items</a>
+	                       		 <form action="AddSupplier" method="get">
+	                            	<button type="submit" class="btn btn-secondary text-decoration-none text-white">Add items</button>
+	                            </form>
 	                        </div>
 	                        
 	                    </div>
@@ -34,7 +38,9 @@
 	                <div class="col mb-4 ">
 	                    <div class="card shadow bg-primary">
 	                        <div class="card-body text-center ">
-	                            <a href="#" class="text-decoration-none text-white">View purchase orders</a>
+	                         	<form action="AddSupplier" method="get">
+	                            	<button type="submit" class="btn btn-primary text-decoration-none text-white">View purchase orders</button>
+	                            </form>
 	                        </div>
 	
 	                    </div>

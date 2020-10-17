@@ -1,12 +1,10 @@
 package com.procument.servelets.accountStaff;
 
 import java.io.IOException;
-import java.net.SocketAddress;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.servlet.DispatcherType;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,33 +19,26 @@ import com.procument.services.SupplierServicesImpl;
 import com.procument.services.SupplierServicesInt;
 
 /**
- * Servlet implementation class AddSupplier
+ * Servlet implementation class UpdateSupplier
  */
-@WebServlet("/AddSupplier")
-public class AddSupplier extends HttpServlet {
+@WebServlet("/UpdateSupplier")
+public class UpdateSupplier extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AddSupplier() {
+    public UpdateSupplier() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		response.getWriter().append("Served at: ").append(request.getContextPath());
-		SupplierServicesInt supplierServicesInt = new SupplierServicesImpl();
-		ArrayList<Supplier> suppliers = supplierServicesInt.get_AllSuppliers();
-		
-		request.setAttribute("suppliers", suppliers);
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("add_supliers.jsp");
-		dispatcher.forward(request, response); 
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -65,21 +56,24 @@ public class AddSupplier extends HttpServlet {
 			HttpSession session = request.getSession();
 			User user = (User) session.getAttribute("user");
 			
-			supplier.setSup_name(request.getParameter("name"));
-			supplier.setComp_name(request.getParameter("compName"));
-			supplier.setSup_contact(Integer.parseInt(request.getParameter("contact")));
-			supplier.setSup_email(request.getParameter("email"));
-			supplier.setSup_addby(user.getId());
-			supplier.setSup_level(Integer.parseInt(request.getParameter("level")));
+			String id = request.getParameter("edit_sup_id");
 			
-			if(request.getParameter("approve")!= null) {
+			supplier.setId(Integer.parseInt(id));
+			supplier.setSup_name(request.getParameter("name2"));
+			supplier.setComp_name(request.getParameter("compName2"));
+			supplier.setSup_contact(Integer.parseInt(request.getParameter("contact2")));
+			supplier.setSup_email(request.getParameter("email2"));
+			supplier.setSup_addby(user.getId());
+			supplier.setSup_level(Integer.parseInt(request.getParameter("level2")));
+			
+			if(request.getParameter("approve2")!= null) {
 				supplier.setApprove(true);
 			}
 			else {
 				supplier.setApprove(false);
 			}
 			
-			supplierServicesInt.add_supplier(supplier);
+			supplierServicesInt.updateSupplier(supplier, Integer.parseInt(id));
 			suppliers = supplierServicesInt.get_AllSuppliers();
 			
 		}catch(Exception ex) {
@@ -90,7 +84,6 @@ public class AddSupplier extends HttpServlet {
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("add_supliers.jsp");
 		dispatcher.forward(request, response);
-		
 //		doGet(request, response);
 	}
 

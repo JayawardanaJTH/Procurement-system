@@ -42,6 +42,7 @@ public class UserServicesImpl implements UserServicesInt {
 			
 			while(resultSet.next()) {
 				user = new User();
+				user.setId(resultSet.getInt(Constant.ONE));
 				user.setUsername(resultSet.getString(Constant.TWO));
 				user.setPassword(resultSet.getString(Constant.THREE));
 				user.setPosition(resultSet.getInt(Constant.FOUR));
